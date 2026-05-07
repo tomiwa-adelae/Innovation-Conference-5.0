@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Get-ChildItem -Path \"C:\\\\Users\\\\tomiw\\\\Documents\\\\School Of Innovation\\\\innovation\" -Recurse -Force)",
+      "Bash(Select-Object -First 100)",
+      "Bash(Format-List FullName)",
+      "WebFetch(domain:innovation-4-0.vercel.app)",
+      "WebFetch(domain:innovationconference.com.ng)",
+      "Bash(Select-Object FullName, PSIsContainer)",
+      "Bash(Format-Table -AutoSize)"
+    ]
+  }
+}
