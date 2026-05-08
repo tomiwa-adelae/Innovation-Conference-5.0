@@ -18,7 +18,7 @@ export function PanelistsSection() {
           </p>
         </div>
 
-        <div className="mt-10 grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-12 grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
           {panelists.map((panelist) => (
             <div key={panelist.id} className="group text-center">
               <div className="relative mx-auto aspect-[4/5] w-full max-w-64 overflow-hidden rounded-2xl shadow-md transition-transform duration-300 group-hover:-translate-y-1 group-hover:shadow-xl">
