@@ -1,3 +1,4 @@
+import Image from "next/image"
 import { sponsors } from "@/lib/data/sponsors"
 import { cn } from "@/lib/utils"
 
@@ -47,11 +48,21 @@ export function SponsorsSection() {
                     <div
                       key={sponsor.id}
                       className={cn(
-                        "rounded-xl border px-6 py-4 text-center transition-shadow hover:shadow-md",
+                        "flex min-h-24 min-w-40 items-center justify-center rounded-xl border px-6 py-4 text-center transition-shadow hover:shadow-md",
                         tierStyle[tier]
                       )}
                     >
-                      {sponsor.name}
+                      {sponsor.logo ? (
+                        <Image
+                          src={sponsor.logo}
+                          alt={`${sponsor.name} logo`}
+                          width={180}
+                          height={90}
+                          className="max-h-16 w-auto object-contain"
+                        />
+                      ) : (
+                        sponsor.name
+                      )}
                     </div>
                   ))}
                 </div>

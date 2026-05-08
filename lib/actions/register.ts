@@ -1,6 +1,8 @@
 "use server"
 
 import { prisma } from "@/lib/prisma"
+import { RegistrationConfirmationEmail } from "@/lib/emails/conference-emails"
+import { sendMailjetEmail } from "@/lib/mailjet"
 import { z } from "zod"
 
 const schema = z.object({
@@ -55,7 +57,26 @@ export async function registerAction(
       }
     }
 
-    await prisma.registration.create({ data: parsed.data })
+    const registration = await prisma.registration.create({ data: parsed.data })
+
+    try {
+      await sendMailjetEmail({
+        to: registration.email,
+        name: registration.fullName,
+        subject: "You're registered for Innovation 5.0",
+        html: RegistrationConfirmationEmail({
+          fullName: registration.fullName,
+          ticketType: registration.ticketType,
+        }),
+      })
+    } catch (error) {
+      console.error("Registration email failed", error)
+      return {
+        success: true,
+        message:
+          "You're registered! We could not send the confirmation email right now, but your spot is saved.",
+      }
+    }
 
     return {
       success: true,

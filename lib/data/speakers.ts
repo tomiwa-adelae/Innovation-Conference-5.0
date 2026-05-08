@@ -14,7 +14,8 @@ export const speakers: Speaker[] = [
     name: "Mrs. Folasade Omobola Adefisayo",
     title: "Principal Consultant & CEO, Leading Learning Ltd",
     subtitle: "Former Hon. Commissioner for Education, Lagos State (2019–2023)",
-    credentials: "BSc. Hons. (Ibadan), MBA (Lagos), iPGCE (Nottingham), MA (Ed) Nottingham",
+    credentials:
+      "BSc. Hons. (Ibadan), MBA (Lagos), iPGCE (Nottingham), MA (Ed) Nottingham",
     bio: "Mrs. Folasade Adefisayo founded her education consulting firm in 2014. With nearly 40 years of diverse professional experience, she specializes in teacher training, leadership development, and school transformation. During her tenure as Hon. Commissioner for Education in Lagos State from 2019 to 2023, she spearheaded initiatives to enhance the educational landscape across the state. She serves on numerous boards including the African Leadership Academy (Johannesburg) and Princeton in Africa Advisory Board.",
     image: "/assets/speaker-adefisayo.jpeg",
   },
@@ -34,7 +35,7 @@ export const speakers: Speaker[] = [
   },
   {
     id: 4,
-    name: "Dr. [Name Pending]",
+    name: "Dr. Adewale Badru",
     title: "Consultant Anesthesiologist & Critical Care Physician",
     subtitle: "Former HOD, Emergency Department — University of Ibadan / UCH",
     bio: "A distinguished medical professional with extensive experience in emergency care, anesthesiology, and critical care medicine at the University of Ibadan and University College Hospital. His story of excellence, service, and impact in Nigeria's healthcare landscape will challenge and inspire every attendee.",

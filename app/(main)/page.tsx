@@ -7,6 +7,8 @@ import { SponsorsSection } from "@/components/sections/sponsors-section"
 import { TestimonialsSection } from "@/components/sections/testimonials-section"
 import { FAQSection } from "@/components/sections/faq-section"
 import { CTASection } from "@/components/sections/cta-section"
+import { ConvenerSection } from "@/components/sections/convener-section"
+import { PanelistsSection } from "@/components/sections/panelists-section"
 
 export default function HomePage() {
   return (
@@ -14,7 +16,9 @@ export default function HomePage() {
       <Hero />
       <StatsStrip />
       <AboutSection />
+      <ConvenerSection />
       <SpeakersSection />
+      <PanelistsSection />
       <ScheduleSection />
       <SponsorsSection />
       <TestimonialsSection />

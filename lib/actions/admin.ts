@@ -4,6 +4,8 @@ import { prisma } from "@/lib/prisma"
 import { cookies } from "next/headers"
 import { createHmac } from "crypto"
 import { revalidatePath } from "next/cache"
+import { AttendanceConfirmationEmail } from "@/lib/emails/conference-emails"
+import { sendMailjetEmail } from "@/lib/mailjet"
 
 function computeToken(password: string) {
   const secret = process.env.ADMIN_SECRET ?? "innovation-secret-fallback"
@@ -52,7 +54,30 @@ export async function isAdminAuthenticated(): Promise<boolean> {
 }
 
 export async function toggleAttendance(id: string, attended: boolean) {
-  await prisma.registration.update({ where: { id }, data: { attended } })
+  if (!(await isAdminAuthenticated())) {
+    throw new Error("Unauthorized")
+  }
+
+  const registration = await prisma.registration.update({
+    where: { id },
+    data: { attended },
+  })
+
+  if (attended) {
+    try {
+      await sendMailjetEmail({
+        to: registration.email,
+        name: registration.fullName,
+        subject: "Your Innovation 5.0 attendance has been confirmed",
+        html: AttendanceConfirmationEmail({
+          fullName: registration.fullName,
+        }),
+      })
+    } catch (error) {
+      console.error("Attendance email failed", error)
+    }
+  }
+
   revalidatePath("/admin")
 }
 
