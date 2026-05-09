@@ -5,7 +5,9 @@ frontend:
     preBuild:
       commands:
         - npm install -g pnpm
-        - pnpm install --ignore-scripts=false
+        - pnpm config set ignore-scripts false
+        - pnpm approve-builds
+        - pnpm install
 
     build:
       commands:
