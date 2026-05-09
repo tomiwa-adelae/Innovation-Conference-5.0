@@ -7,6 +7,7 @@ import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 import { Logo } from "../Logo"
+import { ThemeToggle } from "../ThemeToggle"
 
 const links = [
   { href: "/", label: "Home" },
@@ -58,21 +59,25 @@ export function Navbar() {
           ))}
         </nav>
 
-        {/* Desktop CTA */}
-        <div className="hidden md:block">
-          <Button asChild size="md">
-            <Link href="/register">Register Free</Link>
-          </Button>
-        </div>
+        <div className="flex items-center justify-end gap-4">
+          <ThemeToggle />
 
-        {/* Mobile toggle */}
-        <button
-          className="rounded-md p-2 text-muted-foreground hover:text-foreground md:hidden"
-          onClick={() => setOpen(!open)}
-          aria-label="Toggle menu"
-        >
-          {open ? <X size={20} /> : <Menu size={20} />}
-        </button>
+          {/* Desktop CTA */}
+          <div className="hidden md:block">
+            <Button asChild size="md">
+              <Link href="/register">Register Free</Link>
+            </Button>
+          </div>
+
+          {/* Mobile toggle */}
+          <button
+            className="rounded-md p-2 text-muted-foreground hover:text-foreground md:hidden"
+            onClick={() => setOpen(!open)}
+            aria-label="Toggle menu"
+          >
+            {open ? <X size={20} /> : <Menu size={20} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile menu */}
