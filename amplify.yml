@@ -4,9 +4,7 @@ frontend:
   phases:
     preBuild:
       commands:
-        - npm install -g pnpm
-        - pnpm config set ignore-scripts false
-        - pnpm approve-builds
+        - npm install -g pnpm@9
         - pnpm install
 
     build:
