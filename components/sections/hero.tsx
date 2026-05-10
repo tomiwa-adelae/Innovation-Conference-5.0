@@ -39,14 +39,19 @@ export function Hero() {
         </h1>
 
         {/* Theme */}
-        <p className="text-xl font-semibold text-white/80 sm:text-2xl">
-          &ldquo;Unlocking the Power of You&rdquo;
-        </p>
+        <div className="flex flex-col items-center gap-1">
+          <p className="text-sm font-semibold tracking-widest text-gold/70 uppercase">
+            Theme
+          </p>
+          <p className="text-xl font-semibold text-white/80 sm:text-2xl">
+            &ldquo;Uncharted: Exploring New Frontiers of Possibility&rdquo;
+          </p>
+        </div>
 
         <p className="max-w-xl text-base leading-relaxed text-white/55">
-          Africa&apos;s premier youth innovation conference — connecting the
-          next generation of founders, creators, and leaders for a day of
-          inspiration, networking, and breakthroughs.
+          Africa&apos;s premier youth innovation conference — pushing beyond
+          limits, charting new territory, and discovering what becomes possible
+          when the next generation dares to go further.
         </p>
 
         {/* Event meta */}

@@ -8,7 +8,7 @@ export type Panelist = {
 export const panelists: Panelist[] = [
   {
     id: 1,
-    name: "Victor Omoniyi",
+    name: "Akindotun Micheal Olusanmi ",
     title: "Panelist",
     image: "/assets/IMG_5332.JPG.jpeg",
   },
@@ -20,7 +20,7 @@ export const panelists: Panelist[] = [
   },
   {
     id: 3,
-    name: "Akindotun Micheal Olusanmi",
+    name: "Victor Omoniyi",
     title: "Panelist",
     image: "/assets/WhatsApp Image 2026-05-07 at 1.23.16 AM.jpeg",
   },

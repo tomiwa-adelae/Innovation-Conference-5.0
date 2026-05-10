@@ -16,11 +16,12 @@ export function CTASection() {
           Don&apos;t Miss Out
         </p>
         <h2 className="mt-4 text-3xl leading-tight font-black text-white sm:text-4xl lg:text-5xl">
-          Ready to Unlock Your Potential?
+          Ready to Explore New Frontiers?
         </h2>
         <p className="mt-5 text-base leading-relaxed text-white/60">
           Join 2,000+ young innovators on May 16, 2026 at Ajayi Crowther
-          University. Registration is free — your transformation is priceless.
+          University as we chart uncharted territory together. Registration is
+          free — the frontier is waiting.
         </p>
         <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
           <Button

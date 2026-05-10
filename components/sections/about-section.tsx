@@ -49,7 +49,8 @@ export function AboutSection() {
               Innovation 5.0 is our boldest edition yet — gathering 2,000+
               visionaries under one roof with the singular mission:{" "}
               <span className="font-semibold text-foreground">
-                to help you unlock the full power within you.
+                to explore new frontiers and discover the limitless
+                possibilities that lie ahead.
               </span>
             </p>
             <Button asChild className="mt-7">

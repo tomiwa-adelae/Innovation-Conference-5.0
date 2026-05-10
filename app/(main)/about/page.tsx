@@ -7,7 +7,7 @@ import { CTASection } from "@/components/sections/cta-section"
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Learn about Innovation 5.0, Cornerstone International Foundation, and the mission to unlock the potential of Africa's next generation.",
+    "Learn about Innovation 5.0, Cornerstone International Foundation, and the mission to explore new frontiers of possibility with Africa's next generation.",
 }
 
 const values = [
@@ -44,8 +44,8 @@ export default function AboutPage() {
             About Innovation 5.0
           </h1>
           <p className="mt-5 text-base leading-relaxed text-white/65">
-            A movement built on the belief that every young African holds a
-            power worth unlocking.
+            A movement built on the belief that Africa&apos;s next generation
+            can go further than any frontier ever set before them.
           </p>
         </div>
       </section>
@@ -75,7 +75,7 @@ export default function AboutPage() {
           <p>
             Innovation 5.0, themed{" "}
             <span className="font-semibold text-foreground">
-              &ldquo;Unlocking the Power of You,&rdquo;
+              &ldquo;Uncharted: Exploring New Frontiers of Possibility,&rdquo;
             </span>{" "}
             is our largest and most ambitious edition yet — bringing together
             2,000+ visionaries at Alakija Folorunsho Hall, Ajayi Crowther
