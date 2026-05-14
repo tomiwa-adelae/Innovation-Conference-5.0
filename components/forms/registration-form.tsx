@@ -115,13 +115,13 @@ export function RegistrationForm() {
           )}
         >
           <option value="digital">Digital Pass (Free)</option>
-          <option value="physical">Physical Delegate Pass</option>
-          <option value="founder">Founder Pass</option>
+          {/* <option value="physical">Physical Delegate Pass</option> */}
+          {/* <option value="founder">Founder Pass</option> */}
         </select>
-        <p className="mt-1 text-xs text-muted-foreground">
+        {/* <p className="mt-1 text-xs text-muted-foreground">
           Payment details for Physical &amp; Founder passes will be communicated
           via email.
-        </p>
+        </p> */}
         <FieldError errors={state.errors?.ticketType} />
       </div>
 
