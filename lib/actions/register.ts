@@ -7,7 +7,10 @@ import { z } from "zod"
 
 const schema = z.object({
   fullName: z.string().min(2, "Full name is required"),
-  email: z.string().email("A valid email is required"),
+  email: z.preprocess(
+    (v) => (v === "" ? undefined : v),
+    z.string().email("Please enter a valid email address").optional(),
+  ),
   phone: z.string().min(7, "Phone number is required"),
   institution: z.string().min(2, "Institution or organization is required"),
   ticketType: z.enum(["digital", "physical", "founder"]),
@@ -46,35 +49,39 @@ export async function registerAction(
   }
 
   try {
-    const existing = await prisma.registration.findUnique({
-      where: { email: parsed.data.email },
-    })
+    if (parsed.data.email) {
+      const existing = await prisma.registration.findFirst({
+        where: { email: parsed.data.email },
+      })
 
-    if (existing) {
-      return {
-        success: false,
-        message: "This email is already registered. Check your inbox for your confirmation.",
+      if (existing) {
+        return {
+          success: false,
+          message: "This email is already registered. Check your inbox for your confirmation.",
+        }
       }
     }
 
     const registration = await prisma.registration.create({ data: parsed.data })
 
-    try {
-      await sendMailjetEmail({
-        to: registration.email,
-        name: registration.fullName,
-        subject: "You're registered for Innovation 5.0",
-        html: RegistrationConfirmationEmail({
-          fullName: registration.fullName,
-          ticketType: registration.ticketType,
-        }),
-      })
-    } catch (error) {
-      console.error("Registration email failed", error)
-      return {
-        success: true,
-        message:
-          "You're registered! We could not send the confirmation email right now, but your spot is saved.",
+    if (registration.email) {
+      try {
+        await sendMailjetEmail({
+          to: registration.email,
+          name: registration.fullName,
+          subject: "You're registered for Innovation 5.0",
+          html: RegistrationConfirmationEmail({
+            fullName: registration.fullName,
+            ticketType: registration.ticketType,
+          }),
+        })
+      } catch (error) {
+        console.error("Registration email failed", error)
+        return {
+          success: true,
+          message:
+            "You're registered! We could not send the confirmation email right now, but your spot is saved.",
+        }
       }
     }
 

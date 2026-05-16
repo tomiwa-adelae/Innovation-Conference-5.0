@@ -40,7 +40,7 @@ export function RegistrationsTable({ registrations }: { registrations: Registrat
   const filtered = registrations.filter(
     (r) =>
       r.fullName.toLowerCase().includes(query.toLowerCase()) ||
-      r.email.toLowerCase().includes(query.toLowerCase()) ||
+      (r.email ?? "").toLowerCase().includes(query.toLowerCase()) ||
       r.institution.toLowerCase().includes(query.toLowerCase()),
   )
 

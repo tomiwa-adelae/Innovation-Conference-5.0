@@ -32,7 +32,7 @@ export function RegistrationForm() {
           {state.message}
         </p>
         <p className="mt-2 text-xs text-muted-foreground">
-          Check your inbox — a confirmation email is on its way.
+          If you provided an email, a confirmation message is on its way.
         </p>
       </div>
     )
@@ -63,7 +63,10 @@ export function RegistrationForm() {
 
       {/* Email */}
       <div>
-        <Label htmlFor="email">Email Address *</Label>
+        <Label htmlFor="email">
+          Email Address{" "}
+          <span className="text-muted-foreground font-normal">(optional)</span>
+        </Label>
         <Input
           id="email"
           name="email"

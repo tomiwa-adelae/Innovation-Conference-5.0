@@ -66,7 +66,7 @@ export async function toggleAttendance(id: string, attended: boolean) {
   if (attended) {
     try {
       await sendMailjetEmail({
-        to: registration.email,
+        to: registration.email ?? "",
         name: registration.fullName,
         subject: "Your Innovation 5.0 attendance has been confirmed",
         html: AttendanceConfirmationEmail({
@@ -83,6 +83,12 @@ export async function toggleAttendance(id: string, attended: boolean) {
 
 export async function getRegistrations() {
   return prisma.registration.findMany({
+    orderBy: { createdAt: "desc" },
+  })
+}
+
+export async function getFeedbacks() {
+  return prisma.feedback.findMany({
     orderBy: { createdAt: "desc" },
   })
 }

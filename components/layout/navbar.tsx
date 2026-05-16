@@ -16,6 +16,7 @@ const links = [
   { href: "/#schedule", label: "Schedule" },
   { href: "/gallery", label: "Gallery" },
   { href: "/blog", label: "Blog" },
+  { href: "/feedback", label: "Feedback" },
   { href: "/contact", label: "Contact" },
 ]
 

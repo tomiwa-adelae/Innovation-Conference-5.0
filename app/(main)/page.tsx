@@ -9,6 +9,7 @@ import { FAQSection } from "@/components/sections/faq-section"
 import { CTASection } from "@/components/sections/cta-section"
 import { ConvenerSection } from "@/components/sections/convener-section"
 import { PanelistsSection } from "@/components/sections/panelists-section"
+import { FeedbackSection } from "@/components/sections/feedback-section"
 
 export default function HomePage() {
   return (
@@ -24,6 +25,7 @@ export default function HomePage() {
       <TestimonialsSection />
       <FAQSection />
       <CTASection />
+      <FeedbackSection />
     </>
   )
 }

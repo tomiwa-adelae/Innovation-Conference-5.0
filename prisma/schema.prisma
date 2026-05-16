@@ -10,7 +10,7 @@ datasource db {
 model Registration {
   id          String   @id @default(uuid())
   fullName    String
-  email       String   @unique
+  email       String?
   phone       String
   institution String
   ticketType  String   @default("digital")
@@ -19,4 +19,17 @@ model Registration {
   attended    Boolean  @default(false)
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
+}
+
+model Feedback {
+  id               String   @id @default(uuid())
+  name             String
+  email            String
+  overallRating    Int
+  speakerRating    Int
+  favoritePart     String
+  improvements     String
+  wouldAttendAgain String
+  comments         String?
+  createdAt        DateTime @default(now())
 }
